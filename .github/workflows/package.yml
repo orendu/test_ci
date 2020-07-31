@@ -19,5 +19,6 @@ jobs:
       - name: Generate
         uses: orendu/pandoc@v1
         with:
-          entryPoint: /usr/bin/pandoc --from gfm --to html5 -N --standalone -M title=Readme -o Readme.pdf README.md
+          entryPoint: /usr/bin/pandoc
+          args: --from gfm --to html5 -N --standalone -M title=Readme -o Readme.pdf README.md
         id: gen

@@ -23,3 +23,8 @@ jobs:
           entryPoint: /usr/bin/pandoc
           args: --from gfm --to html5 -N --standalone -M title=Readme -o Readme.pdf /github/workspace/README.md
         id: gen
+      - name: Upload PDF
+        uses: actions/upload-artifact@v2
+        with:
+          name: document
+          path: Readme.pdf

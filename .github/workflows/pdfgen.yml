@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: package
+name: pdfgen
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2 
       - name: Generate
-        uses: orendu/pandoc@v1
+        uses: docker://orendu/pandoc:latest
         with:
           entryPoint: /usr/bin/pandoc
           args: --from gfm --to html5 -N --standalone -M title=Readme -o Readme.pdf /github/workspace/README.md

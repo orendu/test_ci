@@ -34,6 +34,9 @@ jobs:
           name: storage_arch_docs
           path: Readme.pdf
 
+      - name: Create zip
+        run: zip -r storage_arch_docs.zip Readme.pdf
+        
       - name: Get release
         id: get_release
         uses: bruceadams/get-release@v1.2.0
@@ -43,6 +46,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.get_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: ./Readme.pdf
-          asset_name: Readme.pdf
-          asset_content_type: application/pdf
+          asset_path: ./storage_arch_docs.zip
+          asset_name: storage_arch_docs.zip
+          asset_content_type: application/zip

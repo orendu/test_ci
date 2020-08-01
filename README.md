@@ -1,4 +1,4 @@
-[DATE_VER]
+[VER]
 
 # MD CheatSheet
 Basic MarkDown

@@ -16,13 +16,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2 
+        uses: actions/checkout@v2
+        
       - name: Generate
         uses: docker://orendu/pandoc:latest
         with:
-          entryPoint: /usr/bin/pandoc
-          args: --from gfm --to html5 -N --standalone -M title=Readme -o Readme.pdf /github/workspace/README.md
+          entryPoint: /generate.sh
+          args: README.md Readme.pdf "ReadMe"
         id: gen
+        
       - name: Upload PDFs artifact
         uses: actions/upload-artifact@v2
         with:

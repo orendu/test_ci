@@ -20,9 +20,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      
-      - name: Embed version
-        run: sed -i "0,/\[VER\]/ s//`git describe --tags`/g" /github/workspace/README.md 
         
       - name: Generate
         uses: docker://orendu/pandoc:latest

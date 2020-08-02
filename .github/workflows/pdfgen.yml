@@ -24,7 +24,7 @@ jobs:
         uses: docker://orendu/pandoc:latest
         with:
           entryPoint: /generate.sh
-          args: README.md Readme.pdf "ReadMe"
+          args: README.md Readme.pdf css/github-typora2.css "ReadMe"
         id: gen
         
       - name: Upload PDFs artifact

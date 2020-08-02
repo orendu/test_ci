@@ -20,15 +20,25 @@ jobs:
         with:
           fetch-depth: 0
         
-      - name: Generate
+      - name: Generate Readme.pdf
         uses: docker://orendu/pandoc:latest
+        id: gen1
         with:
           entryPoint: /generate.sh
           args: README.md Readme css/github-typora2.css "ReadMe"
-        id: gen
+
+      - name: Generate md_cheatsheet.pdf
+        uses: docker://orendu/pandoc:latest
+        id: gen2
+        with:
+          entryPoint: /generate.sh
+          args: md_cheatsheet.md md_cheatsheet css/github-typora2.css "MarkDown CheatSheet"
         
       - name: Upload PDFs artifact
         uses: actions/upload-artifact@v2
         with:
           name: storage_arch_docs
-          path: Readme.pdf
+          path: |
+            Readme.pdf
+            md_cheatsheet.pdf
+            

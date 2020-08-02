@@ -21,6 +21,11 @@ h5:before {counter-increment: h5c; content: counter(h1c) "." counter(h2c) "." co
 h6:before {counter-increment: h6c; content: counter(h1c) "." counter(h2c) "." counter(h3c) "." counter(h4c) "." counter(h5c) "." counter(h6c) ". "}
 */
 
+/* Lists 1.a.i */
+ol { list-style-type: numbered; }
+ol ol { list-style-type: lower-alpha; }
+ol ol ol { list-style-type: lower-roman; }
+
 img {
     max-width: 100%;
     height: auto;

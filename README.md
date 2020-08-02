@@ -1,30 +1,12 @@
-[VER]
+# README
 
-# MD CheatSheet
-Basic MarkDown
+## Generate PDF using Windows container:
+Pull the docker imange:
+```bash
+git pull orendu/pandoc
+```
 
-## Second level heading
-### Third level
-Some content
-
-## Lists
-Here is a multi-level ordered list:
-1. Level 1
-    1. Level 1.1
-        1. Level 1.1.1
-        1. Level 1.1.2
-    1. Level 1.2
-1. Level 2
-    1. Level 2.1
-  
-Unordered list:
-* Level 1
-    * Level 1.1
-        * Level 1.1.1
-        * Level 1.1.2
-    * Level 1.2
-* Level 2
-    * Level 2.1
-  
-## Character formats
-Regular text, **bold text**, *italic text*, ~~striked text~~, `inline code text` 
+Execute:
+```bash
+winpty docker run --rm -v "`pwd`":/github/workspace orendu/pandoc ///generate.sh README.md ReadMe css/github-typora2.css Readme
+```

@@ -18,24 +18,13 @@ jobs:
     # This job runs on Linux
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        
-      - name: Generate
-        uses: docker://orendu/pandoc:latest
-        with:
-          entryPoint: /usr/bin/pandoc
-          args: --from gfm --to html5 -N --standalone -M title=Readme -o Readme.pdf /github/workspace/README.md
-        id: gen
-        
-      - name: Upload PDFs artifact
-        uses: actions/upload-artifact@v2
+      - name: Get the artifact
+        uses: actions/download-artifact@v2
         with:
           name: storage_arch_docs
-          path: Readme.pdf
 
       - name: Create zip
-        run: zip -r storage_arch_docs.zip Readme.pdf
+        run: zip -r storage_arch_docs.zip *
         
       - name: Get release
         id: get_release

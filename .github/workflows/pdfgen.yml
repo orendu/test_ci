@@ -22,14 +22,12 @@ jobs:
         
       - name: Generate Readme.pdf
         uses: docker://orendu/pandoc:latest
-        id: gen1
         with:
           entryPoint: /generate.sh
           args: . README.md Readme.pdf css/archdoc.css "ReadMe"
 
       - name: Generate md_cheatsheet.pdf
         uses: docker://orendu/pandoc:latest
-        id: gen2
         with:
           entryPoint: /generate.sh
           args: md_cheatsheet md_cheatsheet.md md_cheatsheet.pdf css/archdoc.css "MarkDown CheatSheet"

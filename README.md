@@ -8,5 +8,5 @@ git pull orendu/pandoc
 
 Execute:
 ```bash
-winpty docker run --rm -v "`pwd`":/github/workspace orendu/pandoc ///generate.sh README.md ReadMe css/github-typora2.css Readme
+./wingenpdf.sh
 ```

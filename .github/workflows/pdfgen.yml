@@ -32,7 +32,7 @@ jobs:
         id: gen2
         with:
           entryPoint: /generate.sh
-          args: md_cheatsheet md_cheatsheet.md md_cheatsheet css/archdoc.css "MarkDown CheatSheet"
+          args: md_cheatsheet md_cheatsheet.md md_cheatsheet.pdf css/archdoc.css "MarkDown CheatSheet"
         
       - name: Upload PDFs artifact
         uses: actions/upload-artifact@v2
